@@ -5,8 +5,9 @@ This version adds a handful of simple "applications" such as Notepad
 and a calculator to make the environment feel a little more like a
 usable desktop.
 
-It also includes some light ASCII-art styling and optional colors so
-the interface looks a little closer to the classic operating system."""
+It also includes a boot sequence, a simple welcome screen, and some
+light ASCII-art styling with optional colors so the interface looks a
+little closer to the classic operating system."""
 
 import os
 import sys
@@ -38,6 +39,23 @@ def boot_screen():
         sys.stdout.flush()
         time.sleep(0.3)
     print("\nWelcome to Windows 98!\n")
+
+
+def welcome_screen():
+    """Show a basic welcome banner before entering the desktop."""
+    banner = (
+        Fore.GREEN
+        + Style.BRIGHT
+        + "=" * 40
+        + "\n"
+        + "      Welcome to your Windows 98 PC"
+        + "\n"
+        + "=" * 40
+        + Style.RESET_ALL
+    )
+    print(banner)
+    input("Press Enter to continue...")
+    print()
 
 
 def my_computer():
@@ -115,5 +133,6 @@ def show_start_menu():
 
 if __name__ == "__main__":
     boot_screen()
+    welcome_screen()
     show_start_menu()
 
